@@ -1,0 +1,53 @@
+{
+  "name": "@anchora/token-lists",
+  "author": "DeFiDruid",
+  "description": "📚 The Token Lists specification",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "private": false,
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepublishOnly": "tsdx test && tsdx build"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "license": "MIT",
+  "module": "dist/token-lists.esm.js",
+  "devDependencies": {
+    "ajv": "^6.12.2",
+    "husky": "^4.2.5",
+    "tsdx": "^0.14.0",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anchora-Protocol/token-lists.git"
+  },
+  "keywords": ["anchora", "anchoraswap", "token-list"],
+  "bugs": {
+    "url": "https://github.com/Anchora-Protocol/token-lists/issues"
+  },
+  "homepage": "https://github.com/Anchora-Protocol/token-lists#readme"
+}
