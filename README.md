@@ -1,25 +1,26 @@
-# @anchora/token-lists
+# @uniswap/token-lists (beta)
 
-[![npm](https://img.shields.io/npm/v/@anchora/token-lists)](https://unpkg.com/@anchora/token-lists@latest/)
+[![Tests](https://github.com/Uniswap/token-lists/workflows/Tests/badge.svg)](https://github.com/Uniswap/token-lists/actions?query=workflow%3ATests)
+[![npm](https://img.shields.io/npm/v/@uniswap/token-lists)](https://unpkg.com/@uniswap/token-lists@latest/)
 
 This package includes a JSON schema for token lists, and TypeScript utilities for working with token lists.
 
-The JSON schema represents the technical specification for a token list which can be used in a dApp interface, such as the Anchora's Swap Interface.
+The JSON schema represents the technical specification for a token list which can be used in a dApp interface, such as the Uniswap Interface.
 
 ## What are token lists?
 
-Anchora Token Lists is a specification for lists of token metadata (e.g. address, decimals, ...) that can be used by any dApp interfaces that needs one or more lists of tokens.
+Uniswap Token Lists is a specification for lists of token metadata (e.g. address, decimals, ...) that can be used by any dApp interfaces that needs one or more lists of tokens.
 
 Anyone can create and maintain a token list, as long as they follow the specification.
 
 Specifically an instance of a token list is a [JSON](https://www.json.org/json-en.html) blob that contains a list of 
 [ERC20](https://github.com/ethereum/eips/issues/20) token metadata for use in dApp user interfaces.
-Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used in the Anchora Swap Interface.
+Token list JSON must validate against the [JSON schema](https://json-schema.org/) in order to be used in the Uniswap Interface.
 Tokens on token lists, and token lists themselves, are tagged so that users can easily find tokens.
 
 ## JSON Schema $id
 
-The JSON schema ID is [https://swap.anchora.finance/tokenlist.schema.json](https://swap.anchora.json/tokenlist.schema.json)
+The JSON schema ID is [https://uniswap.org/tokenlist.schema.json](https://uniswap.org/tokenlist.schema.json)
 
 ## Validating token lists
 
@@ -50,7 +51,7 @@ npm package to take advantage of the JSON schema for validation and the TypeScri
 Otherwise, you are simply working with JSON. All the usual tools apply, e.g.:
 
 ```typescript
-import { TokenList, schema } from '@anchora/token-lists'
+import { TokenList, schema } from '@uniswap/token-lists'
 
 // generate your token list however you like.
 const myList: TokenList = generateMyTokenList();
@@ -80,12 +81,19 @@ of the diff of list updates. List updates may still be diffed in the client dApp
 
 ## Deploying your list
 
-Once you have authored the list, you can make it available at any URI. 
+Once you have authored the list, you can make it available at any URI. Prefer pinning your list to IPFS 
+(e.g. via [pinata.cloud](https://pinata.cloud)) and referencing the list by an ENS name that resolves to the 
+[contenthash](https://eips.ethereum.org/EIPS/eip-1577).
 
 If hosted on HTTPS, make sure the endpoint is configured to send an access-control-allow-origin header to avoid CORS errors.
+
+### Linking an ENS name to the list
+
+An ENS name can be assigned to an IPFS hash via the [contenthash](https://eips.ethereum.org/EIPS/eip-1577) text record.
+This is the preferred way of referencing your list.
 
 ## Examples
 
 You can find a simple example of a token list in [test/schema/example.tokenlist.json](test/schema/example.tokenlist.json).
 
-A snapshot of the Anchora default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](test/schema/bigexample.tokenlist.json).
+A snapshot of the Uniswap default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](test/schema/bigexample.tokenlist.json).

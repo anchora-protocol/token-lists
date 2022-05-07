@@ -2,7 +2,7 @@
   "name": "@anchora/token-lists",
   "author": "DeFiDruid",
   "description": "📚 The Token Lists specification",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -17,7 +17,6 @@
     "url": "https://github.com/Anchora-Protocol/token-lists",
     "type": "git"
   },
-  "private": false,
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
